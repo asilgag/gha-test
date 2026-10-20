@@ -1,6 +1,9 @@
 name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+on:
+  schedule:
+    - cron: "0 8 * * *" # everyday @ AM 8:00
+
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
@@ -10,7 +13,7 @@ jobs:
         with:
           node-version: "24"
       - run: shasum yarn.lock
-      - run: yarn install
-      - run: shasum yarn.lock
+      - run: yarn install --frozen-lockfile
+      - run: yarn outdated
       - run: yarn upgrade
       - run: shasum yarn.lock
