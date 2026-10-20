@@ -9,5 +9,5 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: "24"
-      - run: yarn outdated
       - run: yarn upgrade
+      - run: shasum yarn.lock
