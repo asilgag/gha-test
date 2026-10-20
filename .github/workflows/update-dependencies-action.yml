@@ -30,7 +30,13 @@ jobs:
 
       - name: Commit files
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "{user.id}+{user.login}[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "generated"
+          UPDATED=$(git diff --exit-code yarn.lock)
+          if [[ $UPDATED == 1 ]]; then
+              echo "Dependencies updated" >> $GITHUB_OUTPUT
+              git config user.name "github-actions[bot]"
+              git config user.email "{user.id}+{user.login}[bot]@users.noreply.github.com"
+              git add .
+              git commit -m "generated"
+          else
+              echo "No dependencies updated" >> $GITHUB_OUTPUT
+          fi
