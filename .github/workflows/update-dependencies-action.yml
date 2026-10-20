@@ -30,8 +30,8 @@ jobs:
 
       - name: Commit files
         run: |
-          UPDATED=$(git diff --exit-code yarn.lock)
-          if [[ $UPDATED == 1 ]]; then
+          UPDATED=$(git diff yarn.lock)
+          if [ -n "$UPDATED" ]; then
               echo "Dependencies updated" >> $GITHUB_OUTPUT
               git config user.name "github-actions[bot]"
               git config user.email "{user.id}+{user.login}[bot]@users.noreply.github.com"
