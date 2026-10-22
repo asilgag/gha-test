@@ -23,9 +23,8 @@ jobs:
 
       - run: shasum yarn.lock
 
-      - run: yarn install --frozen-lockfile
-
-      - run: yarn outdated
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
       - name: Update dependencies
         run: yarn upgrade
