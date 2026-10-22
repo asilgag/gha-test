@@ -41,6 +41,7 @@ jobs:
           echo "Changes detected, committing them."
           git config user.name "github-actions[bot]"
           git config user.email "{user.id}+{user.login}[bot]@users.noreply.github.com"
-          # git add -A
-          npm version patch -m "chore: update dependencies and upgrade to %s"
+          git add -A
+          git commit -m "chore: update dependencies"
+          npm version patch
           git push
