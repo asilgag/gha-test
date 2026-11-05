@@ -5,6 +5,10 @@ on:
   push:
     tags: v*
   workflow_dispatch:
+  # workflow_run:
+  #   workflows: ["Update dependencies"] #Its the name of an workflow
+  #   types:
+  #     - completed
 
 permissions:
   packages: write
