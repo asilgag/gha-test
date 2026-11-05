@@ -60,4 +60,4 @@ jobs:
         if: steps.commit.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh workflow run publish-to-npm.yml"
+        run: gh workflow run publish-to-npm.yml
