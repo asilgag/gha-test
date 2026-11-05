@@ -30,4 +30,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION=$(node -p "require('./package.json').version")
-          gh release create v$VERSION -t "v${$VERSION}" --generate-notes
+          gh release create v$VERSION -t "v${VERSION}" --generate-notes
